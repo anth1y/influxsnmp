@@ -167,12 +167,16 @@ func printSnmpNames(c *SnmpConfig) {
 
 func snmpClient(s *SnmpConfig) (*gosnmp.GoSNMP, error) {
 	client := &gosnmp.GoSNMP{
-		Target:    s.Host,
-		Port:      uint16(s.Port),
-		Community: s.Public,
-		Version:   gosnmp.Version2c,
-		Timeout:   time.Duration(s.Timeout) * time.Second,
-		Retries:   s.Retries,
+		Target:         s.Host,
+		Port:           uint16(s.Port),
+		Community:      s.Public,
+		Version:        gosnmp.Version3,
+		AuthProtocol:   gosnmp.MD5,
+		UserName:       s.UserName,
+		AuthPassphrase: s.AuthPassphrase,
+		SecurityLevel:  gosnmp.AuthNoPriv,
+		Timeout:        time.Duration(s.Timeout) * time.Second,
+		Retries:        s.Retries,
 	}
 	err := client.Connect()
 	if err != nil {

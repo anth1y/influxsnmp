@@ -21,27 +21,29 @@ import (
 const layout = "2006-01-02 15:04:05"
 
 type SnmpConfig struct {
-	Host      string `gcfg:"host"`
-	Public    string `gcfg:"community"`
-	Port      int    `gcfg:"port"`
-	Retries   int    `gcfg:"retries"`
-	Timeout   int    `gcfg:"timeout"`
-	Repeat    int    `gcfg:"repeat"`
-	Freq      int    `gcfg:"freq"`
-	PortFile  string `gcfg:"portfile"`
-	Config    string `gcfg:"config"`
-	labels    map[string]string
-	asName    map[string]string
-	asOID     map[string]string
-	oids      []string
-	mib       *MibConfig
-	Influx    *InfluxConfig
-	LastError time.Time
-	Requests  int64
-	Gets      int64
-	Errors    int64
-	debugging chan bool
-	enabled   chan chan bool
+	Host           string `gcfg:"host"`
+	UserName       string `gcfg:"username"`
+	AuthPassphrase string `gcfg:"authpassphrase"`
+	Public         string `gcfg:"community"`
+	Port           int    `gcfg:"port"`
+	Retries        int    `gcfg:"retries"`
+	Timeout        int    `gcfg:"timeout"`
+	Repeat         int    `gcfg:"repeat"`
+	Freq           int    `gcfg:"freq"`
+	PortFile       string `gcfg:"portfile"`
+	Config         string `gcfg:"config"`
+	labels         map[string]string
+	asName         map[string]string
+	asOID          map[string]string
+	oids           []string
+	mib            *MibConfig
+	Influx         *InfluxConfig
+	LastError      time.Time
+	Requests       int64
+	Gets           int64
+	Errors         int64
+	debugging      chan bool
+	enabled        chan chan bool
 }
 
 type InfluxConfig struct {
