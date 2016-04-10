@@ -23,7 +23,7 @@ const layout = "2006-01-02 15:04:05"
 type SnmpConfig struct {
 	Host           string `gcfg:"host"`
 	UserName       string `gcfg:"username"`
-	AuthPassphrase string `gcfg:"authpassphrase"`
+	AuthenticationPassphrase string `gcfg:"authpassphrase"`
 	Public         string `gcfg:"community"`
 	Port           int    `gcfg:"port"`
 	Retries        int    `gcfg:"retries"`

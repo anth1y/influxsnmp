@@ -168,7 +168,7 @@ func printSnmpNames(c *SnmpConfig) {
 func snmpClient(s *SnmpConfig) (*gosnmp.GoSNMP, error) {
 	securityParams := gosnmp.UsmSecurityParameters{
             UserName:                  "username",
-            PrivacyPassphrase:         "passphrase",
+            AuthenticationPassphrase:  "passphrase",
             AuthenticationProtocol:    gosnmp.MD5,
         }
 
