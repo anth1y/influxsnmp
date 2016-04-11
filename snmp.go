@@ -178,7 +178,7 @@ func snmpClient(s *SnmpConfig) (*gosnmp.GoSNMP, error) {
 		Community:      s.Public,
 		Version:        gosnmp.Version3,
                 SecurityParameters: &securityParams,
-		MsgFlags:       gosnmp.AuthNoPriv,
+                MsgFlags:       gosnmp.AuthNoPriv,
 		Timeout:        time.Duration(s.Timeout) * time.Second,
 		Retries:        s.Retries,
 	}
